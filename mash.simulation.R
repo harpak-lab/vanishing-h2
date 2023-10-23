@@ -52,18 +52,7 @@ lfsr <- get_lfsr(m)  # Get local false sign rate
 weight <- get_estimated_pi(m)  # Get estimated mixture weights
 
 # Write the results to files
-write.table(pos_mean, "pos_estimates/pos_m.0.5.heri.2000.ampli.txt")
-write.table(pos_sd, "pos_estimates/pos_sd.0.5.heri.2000.ampli.txt")
-write.table(lfsr, "lfsr/lfsr.0.7.heri.2000.ampli.txt")
-write.table(weight,"weight/weight.0.5.heri.2000.ampli.txt")
-
-# Create a heatmap of the empirical Bayes decomposition matrix
-png(filename = "heatmap.U.ed.0.5.2000.png")
-heatmap(U.ed)
-dev.off()
-
-# Create a barplot of the estimated mixture weights
-barplot(weight,las = 2)
-
-# Plot meta-analysis results for significant findings
-mash_plot_meta(m,get_sign
+write.table(pos_mean, paste0("pos_estimates/pos_m.",heri,"heri.", causal,".txt"))
+write.table(pos_sd, paste0("pos_estimates/pos_sd.", heri, ".heri.", causal, ".txt"))
+write.table(lfsr, paste0("lfsr/lfsr.", hero,  ".heri.", causal, ".txt"))
+write.table(weight, paste0("weight/weight.", heri, ".heri.", causal, ".txt")
